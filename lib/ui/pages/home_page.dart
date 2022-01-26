@@ -22,9 +22,11 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-          child: ElevatedButton(
-              onPressed: () => Get.toNamed('/product_page'),
-              child: const Text('data'))),
+        child: ElevatedButton(
+          onPressed: () => Get.toNamed<dynamic>('/product_page'),
+          child: const Text('data'),
+        ),
+      ),
       //bottomNavigationBar: ,
       //body:
       // This trailing comma makes auto-formatting nicer for build methods.

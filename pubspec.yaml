@@ -31,12 +31,13 @@ dependencies:
     sdk: flutter
 
 #visual 
-  #carousel_slider: '4.0.0'
-  flutter_image_slideshow: ^0.1.2
-  sliding_up_panel: '2.0.0+1' 
+  animations: '2.0.2'
   badges: '2.0.2'
   bottom_navy_bar: '6.0.0'
-
+  flutter_image_slideshow: ^0.1.2
+  modal_bottom_sheet: '2.0.0' 
+  sliding_up_panel: '2.0.0+1'   
+ 
 #State management
   bloc: '8.0.2'
   flutter_bloc: '8.0.1'
