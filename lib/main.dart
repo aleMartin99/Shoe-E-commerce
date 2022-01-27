@@ -26,15 +26,11 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage<dynamic>(name: '/home', page: () => const MyHomePage()),
         GetPage<dynamic>(
-          curve: const Interval(
-            0.200,
-            0.400,
-            curve: Curves.elasticOut,
-          ),
+          curve: Curves.ease,
           name: '/product_page',
           page: () => const ProductPage(),
-          transition: Transition.zoom,
-          transitionDuration: const Duration(milliseconds: 2500),
+          transition: Transition.fadeIn,
+          transitionDuration: const Duration(milliseconds: 1000),
         ),
       ],
     );

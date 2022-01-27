@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:get/get.dart';
+import 'package:icofont_flutter/icofont_flutter.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class ProductPage extends StatefulWidget {
@@ -29,61 +31,7 @@ class _ProductPageState extends State<ProductPage> {
                   Icons.favorite_border,
                   color: Colors.black,
                 ),
-                onPressed: () {
-                  setState(() {
-                    showMaterialModalBottomSheet<dynamic>(
-                      context: context,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      builder: (context) => ListView(
-                        shrinkWrap: true,
-                        primary: false,
-                        children: [
-                          SizedBox(
-                            height: 450,
-                            child: Row(
-                              children: [
-                                SizedBox(
-                                  width: 150,
-                                  child: Image.asset(
-                                    'assets/air_max_270.png',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                const Expanded(
-                                  child: ListTile(
-                                    title: Text(
-                                      'AIR MAX 270 \n,,GOLD"',
-                                      textAlign: TextAlign.right,
-                                      style: TextStyle(
-                                        //fontSize: 27,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w700,
-                                        letterSpacing: 2,
-                                      ),
-                                      maxLines: 2,
-                                    ),
-                                    subtitle: Text(
-                                      r'$199',
-                                      textAlign: TextAlign.right,
-                                      style: TextStyle(
-                                        fontSize: 25,
-                                        fontWeight: FontWeight.w700,
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                    isThreeLine: true,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                  });
-                },
+                onPressed: () {},
                 //heroTag: null,
               ),
             ),
@@ -95,7 +43,279 @@ class _ProductPageState extends State<ProductPage> {
 
                 // TODO(ale): method
 
-                onPressed: () => 0,
+                onPressed: () {
+                  setState(() {
+                    showMaterialModalBottomSheet<dynamic>(
+                      //elevation: 10,
+                      context: context,
+                      barrierColor: Colors.black54,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      builder: (context) => Column(
+                        mainAxisSize: MainAxisSize.min,
+                        // shrinkWrap: true,
+                        //primary: false,
+                        // mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: 200,
+                                height: 200,
+                                child: Image.asset(
+                                  'assets/air_max_270.png',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 18),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: const [
+                                      Text(
+                                        'AIR MAX 270 \n,,GOLD"',
+                                        textAlign: TextAlign.right,
+                                        style: TextStyle(
+                                          letterSpacing: 2,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.black54,
+                                        ),
+                                        maxLines: 2,
+                                      ),
+                                      SizedBox(
+                                        height: 15,
+                                      ),
+                                      Text(
+                                        r'$199',
+                                        textAlign: TextAlign.right,
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 24,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Icon(
+                                IcoFontIcons.footPrint,
+                                color: Colors.black54,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 8),
+                                child: Text(
+                                  'SELECT SIZE',
+                                  style: TextStyle(
+                                    letterSpacing: 1,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black54,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 18),
+                            child: GridView.count(
+                              childAspectRatio: 1.8,
+                              padding: EdgeInsets.zero,
+                              shrinkWrap: true,
+                              primary: false,
+                              crossAxisSpacing: 8,
+                              mainAxisSpacing: 8,
+                              crossAxisCount: 4,
+                              children: <Widget>[
+                                OutlinedButton(
+                                  style: ButtonStyle(
+                                    shape: MaterialStateProperty.all(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(15),
+                                      ),
+                                    ),
+                                    padding: MaterialStateProperty.all(
+                                      EdgeInsets.zero,
+                                    ),
+                                  ),
+                                  onPressed: null,
+                                  child: const Text(
+                                    'US 6',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                OutlinedButton(
+                                  style: ButtonStyle(
+                                    padding: MaterialStateProperty.all(
+                                      const EdgeInsets.symmetric(
+                                        vertical: 13,
+                                        horizontal: 19,
+                                      ),
+                                    ),
+                                    shape: MaterialStateProperty.all(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(15),
+                                      ),
+                                    ),
+                                  ),
+                                  onPressed: null,
+                                  child: const Text(
+                                    'US 8',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                OutlinedButton(
+                                  style: ButtonStyle(
+                                    padding: MaterialStateProperty.all(
+                                      const EdgeInsets.symmetric(
+                                        vertical: 13,
+                                        // horizontal: 19,
+                                      ),
+                                    ),
+                                    shape: MaterialStateProperty.all(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(15),
+                                      ),
+                                    ),
+                                  ),
+                                  onPressed: null,
+                                  child: const Text(
+                                    'US 9',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                OutlinedButton(
+                                  style: ButtonStyle(
+                                    padding: MaterialStateProperty.all(
+                                      const EdgeInsets.symmetric(
+                                        vertical: 13,
+                                        //  horizontal: 19,
+                                      ),
+                                    ),
+                                    shape: MaterialStateProperty.all(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(15),
+                                      ),
+                                    ),
+                                  ),
+                                  onPressed: null,
+                                  child: const Text(
+                                    'US 9.5',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                OutlinedButton(
+                                  style: ButtonStyle(
+                                    padding: MaterialStateProperty.all(
+                                      const EdgeInsets.symmetric(
+                                        vertical: 13,
+                                        //  horizontal: 19,
+                                      ),
+                                    ),
+                                    shape: MaterialStateProperty.all(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(15),
+                                      ),
+                                    ),
+                                  ),
+                                  onPressed: null,
+                                  child: const Text(
+                                    'US 10',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          Center(
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.black),
+                                padding: MaterialStateProperty.all(
+                                  const EdgeInsets.symmetric(
+                                    vertical: 13, horizontal: 13,
+                                    //  horizontal: 19,
+                                  ),
+                                ),
+                                shape: MaterialStateProperty.all(
+                                  const RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(30)),
+                                  ),
+                                ),
+                              ),
+                              onPressed: null,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 2,
+                                ),
+                                child: Row(
+                                  //crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: const [
+                                    Padding(
+                                      padding: EdgeInsets.only(right: 12),
+                                      child: Icon(
+                                        Icons.shopping_basket_outlined,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    Text(
+                                      'ADD TO CART',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        letterSpacing: 1,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 24,
+                          ),
+                        ],
+                      ),
+                    );
+                  });
+                },
                 heroTag: null,
                 child: const Icon(
                   Icons.shopping_basket_outlined,
@@ -116,16 +336,14 @@ class _ProductPageState extends State<ProductPage> {
         ),
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white10,
+
         // toolbarHeight: 100,
         centerTitle: true,
-        title: FittedBox(
-          fit: BoxFit.cover,
-          //clipBehavior: Clip.hardEdge,
-          child: Image.asset(
-            'assets/png-transparent-jumpman-nike-free-swoosh-nike-angle-triangle-logo-thumbnail.png',
-            height: 50,
-            width: 60,
-          ),
+
+        title: Image.asset(
+          'assets/png-transparent-jumpman-nike-free-swoosh-nike-angle-triangle-logo-thumbnail.png',
+          height: 50,
+          width: 60,
         ),
       ),
       body: ListView(
