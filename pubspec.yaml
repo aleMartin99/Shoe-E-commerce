@@ -37,6 +37,8 @@ dependencies:
   flutter_image_slideshow: ^0.1.2
   modal_bottom_sheet: '2.0.0' 
   sliding_up_panel: '2.0.0+1'   
+
+  flutter_svg: '1.0.3'
   
  
 #State management

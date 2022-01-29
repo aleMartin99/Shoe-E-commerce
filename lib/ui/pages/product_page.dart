@@ -1,4 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:dclick_test/logic/models/product.dart';
+import 'package:dclick_test/ui/widgets/add_to_cart_button.dart';
+import 'package:dclick_test/ui/widgets/foot_size_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:get/get.dart';
@@ -6,7 +8,9 @@ import 'package:icofont_flutter/icofont_flutter.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class ProductPage extends StatefulWidget {
-  const ProductPage({Key? key}) : super(key: key);
+  ProductPage({Key? key, required this.product}) : super(key: key);
+
+  Product product;
 
   @override
   _ProductPageState createState() => _ProductPageState();
@@ -46,6 +50,8 @@ class _ProductPageState extends State<ProductPage> {
                 onPressed: () {
                   setState(() {
                     showMaterialModalBottomSheet<dynamic>(
+                      //TODO ver propiedad, Arreglar redondeado de abajo
+                      isDismissible: true,
                       //elevation: 10,
                       context: context,
                       barrierColor: Colors.black54,
@@ -141,26 +147,9 @@ class _ProductPageState extends State<ProductPage> {
                               mainAxisSpacing: 8,
                               crossAxisCount: 4,
                               children: <Widget>[
-                                OutlinedButton(
-                                  style: ButtonStyle(
-                                    shape: MaterialStateProperty.all(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15),
-                                      ),
-                                    ),
-                                    padding: MaterialStateProperty.all(
-                                      EdgeInsets.zero,
-                                    ),
-                                  ),
-                                  onPressed: null,
-                                  child: const Text(
-                                    'US 6',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
+                                //TODO(ale): cambiar resto de outlined buttons x footsizebutton
+                                const FootSizeButton(),
+
                                 OutlinedButton(
                                   style: ButtonStyle(
                                     padding: MaterialStateProperty.all(
@@ -260,53 +249,7 @@ class _ProductPageState extends State<ProductPage> {
                             height: 15,
                           ),
                           Center(
-                            child: ElevatedButton(
-                              style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all(Colors.black),
-                                padding: MaterialStateProperty.all(
-                                  const EdgeInsets.symmetric(
-                                    vertical: 13, horizontal: 13,
-                                    //  horizontal: 19,
-                                  ),
-                                ),
-                                shape: MaterialStateProperty.all(
-                                  const RoundedRectangleBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(30)),
-                                  ),
-                                ),
-                              ),
-                              onPressed: null,
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 8,
-                                  vertical: 2,
-                                ),
-                                child: Row(
-                                  //crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: const [
-                                    Padding(
-                                      padding: EdgeInsets.only(right: 12),
-                                      child: Icon(
-                                        Icons.shopping_basket_outlined,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    Text(
-                                      'ADD TO CART',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        letterSpacing: 1,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
+                            child: AddToCartButton(),
                           ),
                           const SizedBox(
                             height: 24,
@@ -328,26 +271,25 @@ class _ProductPageState extends State<ProductPage> {
       ),
       appBar: AppBar(
         // foregroundColor: Colors.red,
-        iconTheme: const IconThemeData(color: Colors.black),
-        elevation: 0,
+
+        // elevation: 0,
         leading: IconButton(
+          splashColor: Colors.transparent,
           onPressed: Get.back,
           icon: const Icon(Icons.arrow_back_ios_new),
         ),
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.white10,
-
-        // toolbarHeight: 100,
-        centerTitle: true,
-
+        //  backgroundColor: Colors.white10,
+        // centerTitle: true,
         title: Image.asset(
-          'assets/png-transparent-jumpman-nike-free-swoosh-nike-angle-triangle-logo-thumbnail.png',
-          height: 50,
-          width: 60,
+          'assets/logo.png',
+          // semanticsLabel: 'nike logo',
+          height: 60,
+          width: 70,
         ),
       ),
       body: ListView(
-        physics: const ScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         children: [
           const SizedBox(
             height: 10,
@@ -357,28 +299,29 @@ class _ProductPageState extends State<ProductPage> {
             height: 400,
             indicatorColor: Colors.black,
             children: [
+              //TODO la lista dinamica, arreglar en product el listado d imagenes
               Image.asset(
-                'assets/nike.jpg',
+                widget.product.images[0],
                 fit: BoxFit.cover,
               ),
               Image.asset(
-                'assets/air_max_270.png',
+                widget.product.images[1],
                 fit: BoxFit.cover,
               ),
               Image.asset(
-                'assets/nike-rojos.jpg',
+                widget.product.images[2],
                 fit: BoxFit.cover,
-              )
+              ),
             ],
           ),
           const SizedBox(
             height: 24,
           ),
           ListTile(
-            title: const Text(
-              'AIR MAX 270',
+            title: Text(
+              widget.product.model,
               textAlign: TextAlign.start,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 27,
                 color: Colors.black,
                 fontWeight: FontWeight.w700,
@@ -386,10 +329,10 @@ class _ProductPageState extends State<ProductPage> {
               ),
               maxLines: 2,
             ),
-            subtitle: const Text(
-              ',,GOLD"',
+            subtitle: Text(
+              widget.product.colorShoe,
               textAlign: TextAlign.start,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontSize: 27,
                 fontWeight: FontWeight.w700,
@@ -402,10 +345,10 @@ class _ProductPageState extends State<ProductPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.end,
-                children: const [
+                children: [
                   Text(
-                    r'$349',
-                    style: TextStyle(
+                    '\$${widget.product.oldPrice}',
+                    style: const TextStyle(
                       decoration: TextDecoration.lineThrough,
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -413,8 +356,8 @@ class _ProductPageState extends State<ProductPage> {
                     ),
                   ),
                   Text(
-                    r'$199',
-                    style: TextStyle(
+                    '\$${widget.product.price}',
+                    style: const TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.w700,
                       color: Colors.black,
@@ -498,14 +441,13 @@ class _ProductPageState extends State<ProductPage> {
           const SizedBox(
             height: 24,
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(
-              "The Nike Air Force 270 Men's Shoe is inspired by the 'Sir Charles' original, the Nike Air Force 270 features a visible Air Max unit that is near twice the size as the 1992 classic.",
-              style: TextStyle(
+              widget.product.description,
+              style: const TextStyle(
                 fontSize: 15,
                 // fontWeight: FontWeight.w500,
-
                 color: Colors.black54,
               ),
               textAlign: TextAlign.start,
