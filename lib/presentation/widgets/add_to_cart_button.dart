@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AddToCartButton extends StatefulWidget {
-  AddToCartButton({Key? key}) : super(key: key);
+  AddToCartButton({
+    Key? key,
+    required this.activated,
+  }) : super(
+          key: key,
+        );
 
+  bool activated;
   @override
   State<AddToCartButton> createState() => _AddToCartButtonState();
 }
@@ -12,11 +18,13 @@ class _AddToCartButtonState extends State<AddToCartButton> {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(Colors.black),
+        backgroundColor: widget.activated
+            ? MaterialStateProperty.all(Colors.black)
+            : MaterialStateProperty.all(Colors.black12),
         padding: MaterialStateProperty.all(
           const EdgeInsets.symmetric(
-            vertical: 13, horizontal: 13,
-            //  horizontal: 19,
+            vertical: 13,
+            horizontal: 13,
           ),
         ),
         shape: MaterialStateProperty.all(
@@ -27,14 +35,17 @@ class _AddToCartButtonState extends State<AddToCartButton> {
           ),
         ),
       ),
-      onPressed: null,
+      onPressed: () {
+        setState(() {
+          widget.activated = !widget.activated;
+        });
+      },
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 8,
           vertical: 2,
         ),
         child: Row(
-          //crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: const [
             Padding(

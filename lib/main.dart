@@ -1,8 +1,5 @@
-import 'package:dclick_test/logic/models/product.dart';
-import 'package:dclick_test/logic/populators.dart';
-import 'package:dclick_test/ui/pages/home_page.dart';
-import 'package:dclick_test/ui/pages/product_page.dart';
-//import 'package:bloc/bloc.dart';
+import 'package:dclick_test/presentation/pages/home_page.dart';
+import 'package:dclick_test/presentation/pages/product_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,11 +8,9 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
-
-  List<Product> x = products;
-
-  // TODO(ale): change to BLOC
+  MyApp({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +30,11 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage<dynamic>(name: '/home', page: MyHomePage.new),
         GetPage<dynamic>(
-          curve: Curves.ease,
+          curve: Curves.slowMiddle,
           name: '/product_page',
-          page: () => ProductPage(product: products[0]),
-          transition: Transition.fadeIn,
-          transitionDuration: const Duration(milliseconds: 1000),
+          page: ProductPage.new,
+          transition: Transition.circularReveal,
+          transitionDuration: const Duration(milliseconds: 1300),
         ),
       ],
     );

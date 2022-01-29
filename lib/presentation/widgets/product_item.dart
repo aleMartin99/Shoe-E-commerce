@@ -1,30 +1,31 @@
-import 'package:dclick_test/logic/models/product.dart';
+import 'package:dclick_test/data/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProductItem extends StatefulWidget {
-  ProductItem({Key? key, required this.product}) : super(key: key);
+  const ProductItem({Key? key, required this.product}) : super(key: key);
 
-  Product product;
+  final Product product;
 
   @override
   State<ProductItem> createState() => _ProductItemState();
 }
 
 class _ProductItemState extends State<ProductItem> {
-//TODO(ale): HACER DINAMICO
-
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 18),
       child: Card(
-        color: Colors.grey.shade100,
+        color: widget.product.backgroundColor,
         elevation: 0,
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
         child: InkWell(
-          onTap: () => Get.toNamed<dynamic>('/product_page'),
+          onTap: () => Get.toNamed<dynamic>(
+            '/product_page',
+            arguments: widget.product,
+          ),
           child: Column(
             children: [
               SizedBox(
@@ -37,7 +38,6 @@ class _ProductItemState extends State<ProductItem> {
                 ),
               ),
               Text(
-                //TODO verificar q pinche esto del nombre largo,
                 '${widget.product.model}'
                 '${widget.product.colorShoe}',
                 textAlign: TextAlign.right,
@@ -64,11 +64,7 @@ class _ProductItemState extends State<ProductItem> {
                     ),
                     Column(
                       children: [
-                        //TODO(ale): probar en el if el posicionamiento del nombre sin rebaja
-                        // if (widget.product.lowered == true)
                         Text(
-                          //TODO revisar q el precio coja bien
-
                           '\$${widget.product.oldPrice}',
                           style: const TextStyle(
                             decoration: TextDecoration.lineThrough,
