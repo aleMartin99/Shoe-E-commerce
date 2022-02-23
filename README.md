@@ -1,5 +1,6 @@
 # dclick_test
 
+E-commerce store demo.
 Dclick Soluciones Test.
 
 ## Getting Started
