@@ -1,10 +1,15 @@
 import 'package:dclick_test/presentation/pages/home_page.dart';
 import 'package:dclick_test/presentation/pages/product_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 void main() {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
