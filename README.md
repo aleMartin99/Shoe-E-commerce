@@ -1,4 +1,4 @@
-# dclick_test
+# Shoe E-commerce
 
 E-commerce store demo.
 Dclick Soluciones Test.
