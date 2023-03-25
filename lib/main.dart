@@ -1,8 +1,8 @@
-import 'package:dclick_test/presentation/pages/home_page.dart';
-import 'package:dclick_test/presentation/pages/product_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:shoe_shop/presentation/pages/home_page.dart';
+import 'package:shoe_shop/presentation/pages/product_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Dclick Soluciones Test',
+      title: 'Shop',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
           elevation: 0,

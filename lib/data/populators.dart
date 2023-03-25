@@ -1,6 +1,7 @@
-import 'package:dclick_test/data/models/foot_size.dart';
-import 'package:dclick_test/data/models/product.dart';
 import 'package:flutter/material.dart';
+
+import 'package:shoe_shop/data/models/foot_size.dart';
+import 'package:shoe_shop/data/models/product.dart';
 
 List<Product> products = [
   Product(
@@ -20,7 +21,7 @@ List<Product> products = [
       'assets/jordan_1.png',
       'assets/jordan_1.png',
     ],
-    sizeAvailable: [
+    sizeAvailable: <FootSize>[
       FootSize(region: 'US', size: '6'),
       FootSize(region: 'US', size: '7'),
       FootSize(region: 'US', size: '9'),
@@ -45,7 +46,7 @@ List<Product> products = [
       'assets/nike_air_force_1_high.png',
       'assets/nike_air_force_1_high.png',
     ],
-    sizeAvailable: [
+    sizeAvailable: <FootSize>[
       FootSize(region: 'US', size: '6'),
       FootSize(region: 'US', size: '7'),
       FootSize(region: 'US', size: '9'),
@@ -70,7 +71,7 @@ List<Product> products = [
       'assets/air_max_270.png',
       'assets/air_max_270.png',
     ],
-    sizeAvailable: [
+    sizeAvailable: <FootSize>[
       FootSize(region: 'US', size: '6'),
       FootSize(region: 'US', size: '7'),
       FootSize(region: 'US', size: '9'),

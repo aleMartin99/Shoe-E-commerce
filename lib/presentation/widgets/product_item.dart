@@ -1,6 +1,6 @@
-import 'package:dclick_test/data/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shoe_shop/data/models/product.dart';
 
 class ProductItem extends StatefulWidget {
   const ProductItem({Key? key, required this.product}) : super(key: key);

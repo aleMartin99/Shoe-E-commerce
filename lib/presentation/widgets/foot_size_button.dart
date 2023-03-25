@@ -1,5 +1,5 @@
-import 'package:dclick_test/data/models/foot_size.dart';
 import 'package:flutter/material.dart';
+import 'package:shoe_shop/data/models/foot_size.dart';
 
 class FootSizeButton extends StatefulWidget {
   FootSizeButton({

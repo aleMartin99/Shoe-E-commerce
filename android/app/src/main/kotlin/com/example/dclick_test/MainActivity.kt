@@ -1,4 +1,4 @@
-package com.example.dclick_test
+package com.example.shop
 
 import io.flutter.embedding.android.FlutterActivity
 

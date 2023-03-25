@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:dclick_test/data/models/foot_size.dart';
+import 'package:shoe_shop/data/models/foot_size.dart';
 
 // la vida
 class Product {

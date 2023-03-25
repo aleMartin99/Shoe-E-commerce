@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.dclick_test">
+    package="com.example.shop">
    <application
-        android:label="dclick_test"
+        android:label="shop"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

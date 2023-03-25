@@ -1,11 +1,11 @@
-import 'package:dclick_test/data/models/product.dart';
-import 'package:dclick_test/presentation/widgets/add_to_cart_button.dart';
-import 'package:dclick_test/presentation/widgets/foot_size_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:get/get.dart';
 import 'package:icofont_flutter/icofont_flutter.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:shoe_shop/data/models/product.dart';
+import 'package:shoe_shop/presentation/widgets/add_to_cart_button.dart';
+import 'package:shoe_shop/presentation/widgets/foot_size_button.dart';
 
 class ProductPage extends StatefulWidget {
   ProductPage({

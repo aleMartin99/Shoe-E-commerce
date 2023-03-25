@@ -1,5 +1,5 @@
-name: dclick_test
-description: Dclick Soluciones Test.
+name: shoe_shop
+description: A shop for selling shoes
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -34,7 +34,11 @@ dependencies:
   flutter_image_slideshow: ^0.1.2 
   get: '4.6.1'
   icofont_flutter: '1.4.0'
-  modal_bottom_sheet: '2.0.0' 
+  modal_bottom_sheet:
+     git:
+       url: https://github.com/followthemoney1/modal_bottom_sheet.git
+       ref: main
+       path: modal_bottom_sheet
   very_good_analysis: '2.4.0'
 
 

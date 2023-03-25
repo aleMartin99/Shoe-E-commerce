@@ -1,7 +1,6 @@
 # Shoe E-commerce
 
 E-commerce store demo.
-Dclick Soluciones Test.
 
 ## Getting Started
 
