@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shoe_shop/data/models/product.dart';
 import 'package:shoe_shop/data/populators.dart';
+import 'package:shoe_shop/presentation/widgets/product_item.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key}) : super(key: key);
